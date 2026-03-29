@@ -3,9 +3,6 @@ title: Deploy ke Shared Hosting cPanel
 description: Deploy Sekolix CABT ke shared hosting Indonesia dengan cPanel — menggunakan SSH, Composer, dan konfigurasi manual public_html.
 sidebar:
   order: 8
-  badge:
-    text: Lanjutan
-    variant: danger
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
@@ -113,7 +110,7 @@ Di cPanel, `public_html` adalah folder yang bisa diakses publik (seperti `Docume
 
    ```bash
    cd ~
-   git clone https://github.com/USERNAME/sekolix-cabt.git
+   git clone https://github.com/rezacodev/sekolix-cabt.git
    cd sekolix-cabt
    ```
 

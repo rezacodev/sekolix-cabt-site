@@ -3,9 +3,6 @@ title: Deploy ke Fly.io
 description: Deploy Sekolix CABT ke Fly.io menggunakan flyctl CLI — kontrol penuh dengan volume persisten gratis.
 sidebar:
   order: 4
-  badge:
-    text: Menengah
-    variant: caution
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';

@@ -3,9 +3,6 @@ title: Deploy ke Railway
 description: Panduan lengkap deploy Sekolix CABT ke Railway — gratis, tanpa konfigurasi server, step by step untuk pemula.
 sidebar:
   order: 1
-  badge:
-    text: Mudah
-    variant: success
 ---
 
 import { Steps, Aside, Tabs, TabItem } from '@astrojs/starlight/components';

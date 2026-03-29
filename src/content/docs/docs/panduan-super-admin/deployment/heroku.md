@@ -3,9 +3,6 @@ title: Deploy ke Heroku
 description: Deploy Sekolix CABT ke Heroku menggunakan Procfile dan buildpack PHP — platform klasik dengan ekosistem add-on lengkap.
 sidebar:
   order: 6
-  badge:
-    text: Mudah
-    variant: success
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';

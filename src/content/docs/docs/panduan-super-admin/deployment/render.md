@@ -3,9 +3,6 @@ title: Deploy ke Render.com
 description: Deploy Sekolix CABT ke Render.com dengan free tier 750 jam/bulan dan persistent disk gratis.
 sidebar:
   order: 2
-  badge:
-    text: Mudah
-    variant: success
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';

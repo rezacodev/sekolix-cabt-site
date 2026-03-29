@@ -3,9 +3,6 @@ title: Deploy ke VPS Ubuntu Manual
 description: Panduan lengkap deploy Sekolix CABT ke VPS Ubuntu 22.04 dengan Nginx, PHP-FPM 8.2, MySQL, dan SSL Certbot.
 sidebar:
   order: 7
-  badge:
-    text: Lanjutan
-    variant: danger
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
@@ -172,11 +169,9 @@ Panduan ini mengasumsikan kamu familiar dengan Linux command line, SSH, dan mana
    ```bash
    mkdir -p /var/www
    cd /var/www
-   git clone https://github.com/USERNAME/sekolix-cabt.git
+   git clone https://github.com/rezacodev/sekolix-cabt.git
    cd sekolix-cabt
    ```
-
-   Ganti `USERNAME` dengan username GitHub kamu.
 
 9. **Konfigurasi .env**
 

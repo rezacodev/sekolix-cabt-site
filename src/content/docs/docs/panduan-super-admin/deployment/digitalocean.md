@@ -3,9 +3,6 @@ title: Deploy ke DigitalOcean App Platform
 description: Deploy Sekolix CABT ke DigitalOcean App Platform — managed cloud dengan antarmuka bersih dan database MySQL terkelola.
 sidebar:
   order: 5
-  badge:
-    text: Menengah
-    variant: caution
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
@@ -198,7 +195,7 @@ region: sgp
 services:
   - name: web
     github:
-      repo: username/sekolix-cabt
+      repo: rezacodev/sekolix-cabt
       branch: main
       deploy_on_push: true
     run_command: bash start.sh

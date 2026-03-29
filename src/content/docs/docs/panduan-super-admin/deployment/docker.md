@@ -3,9 +3,6 @@ title: Deploy dengan Docker Compose
 description: Jalankan Sekolix CABT secara terisolasi menggunakan Docker Compose — ideal untuk staging lokal, server VPS, atau tim developer.
 sidebar:
   order: 3
-  badge:
-    text: Menengah
-    variant: caution
 ---
 
 import { Steps, Aside, FileTree } from '@astrojs/starlight/components';
@@ -302,7 +299,7 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER
 
 # 2. Clone repository
-git clone https://github.com/username/sekolix-cabt.git
+git clone https://github.com/rezacodev/sekolix-cabt.git
 cd sekolix-cabt
 
 # 3. Salin .env dan konfigurasi
