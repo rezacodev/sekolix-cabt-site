@@ -10,7 +10,7 @@ import { Steps } from '@astrojs/starlight/components';
 1. **Clone repositori**
 
    ```bash
-   git clone <url-repo> sekolix-cabt
+   git clone https://github.com/rezacodev/sekolix-cabt.git sekolix-cabt
    cd sekolix-cabt
    ```
 

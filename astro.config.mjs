@@ -12,7 +12,7 @@ export default defineConfig({
 			title: 'Sekolix CABT',
 			description: 'Dokumentasi resmi sistem ujian berbasis komputer Sekolix CABT.',
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/your-org/sekolix-cabt' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/rezacodev/sekolix-cabt' },
 			],
 			customCss: ['./src/styles/docs.css'],
 			sidebar: [
@@ -45,7 +45,7 @@ export default defineConfig({
 				},
 			],
 			editLink: {
-				baseUrl: 'https://github.com/your-org/sekolix-cabt-site/edit/main/',
+				baseUrl: 'https://github.com/rezacodev/sekolix-cabt-site/edit/master/',
 			},
 		}),
 	],

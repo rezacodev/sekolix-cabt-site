@@ -24,7 +24,7 @@ import { Steps, Aside } from '@astrojs/starlight/components';
 1. **Clone & install dependensi**
 
    ```bash
-   git clone <url-repo> /var/www/sekolix-cabt
+   git clone https://github.com/rezacodev/sekolix-cabt.git /var/www/sekolix-cabt
    cd /var/www/sekolix-cabt
    composer install --no-dev --optimize-autoloader
    npm install && npm run build
