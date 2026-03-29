@@ -1,0 +1,1245 @@
+---
+import Landing from '@/layouts/Landing.astro';
+---
+
+<Landing title="Sekolix CABT — Sistem Ujian Berbasis Komputer">
+
+<style is:global>
+  /* ─── Reset & Fonts ─── */
+  @import url('https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&family=syne:700,800');
+
+  :root {
+    --ink: #0a0f1e;
+    --ink-soft: #2d3555;
+    --muted: #6b7280;
+    --surface: #f5f6fa;
+    --white: #ffffff;
+    --accent: #4361ee;
+    --accent-light: #e8ecff;
+    --accent-mid: #7b93fd;
+    --green: #06d6a0;
+    --amber: #ffd60a;
+    --rose: #f72585;
+    --border: #e5e7eb;
+    --border-dark: #d1d5db;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .font-display { font-family: 'Syne', sans-serif; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ─── NAVBAR ─── */
+  .navbar {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 100;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+
+  .navbar.scrolled {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; right: -6px;
+    width: 20px; height: 20px;
+    background: var(--accent);
+    border-radius: 4px;
+  }
+
+  .logo-mark svg { position: relative; z-index: 1; }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  @media (max-width: 767px) { .nav-links { display: none; } }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-nav-primary {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .btn-nav-primary:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .btn-nav-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--border-dark);
+    transition: all 0.2s;
+  }
+
+  .btn-nav-github:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    background: var(--surface);
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--ink);
+  }
+
+  @media (max-width: 767px) { .mobile-toggle { display: flex; align-items: center; } }
+
+  .icon-close { display: none; }
+
+  .mobile-drawer {
+    display: none;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .mobile-drawer.drawer-open { display: block; }
+
+  .mobile-drawer a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-drawer a:last-child { border-bottom: none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    padding: 120px 0 80px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(67,97,238,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(67,97,238,0.12) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .hero-orb-1 {
+    width: 600px; height: 600px;
+    top: -200px; right: -100px;
+    background: radial-gradient(circle, rgba(67,97,238,0.35) 0%, transparent 70%);
+  }
+
+  .hero-orb-2 {
+    width: 400px; height: 400px;
+    bottom: -100px; left: -100px;
+    background: radial-gradient(circle, rgba(247,37,133,0.2) 0%, transparent 70%);
+  }
+
+  .hero-orb-3 {
+    width: 300px; height: 300px;
+    top: 30%; left: 30%;
+    background: radial-gradient(circle, rgba(6,214,160,0.1) 0%, transparent 70%);
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { display: none; }
+  }
+
+  .hero-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(67,97,238,0.15);
+    border: 1px solid rgba(67,97,238,0.3);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .hero-badge-oss {
+    background: rgba(6,214,160,0.1);
+    border-color: rgba(6,214,160,0.25);
+    color: var(--green);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .hero-badge-oss:hover {
+    background: rgba(6,214,160,0.18);
+    border-color: rgba(6,214,160,0.45);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.75rem, 5vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent-mid) 0%, var(--green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 0 0 rgba(67,97,238,0.5);
+  }
+
+  .btn-hero-primary:hover {
+    background: #3251d3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(67,97,238,0.4);
+  }
+
+  .btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .btn-hero-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 28px;
+    width: 340px;
+    backdrop-filter: blur(12px);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .card-title { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .card-badge {
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(6,214,160,0.15);
+    color: var(--green);
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .question-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .q-label { font-size: 0.7rem; color: rgba(255,255,255,0.35); font-weight: 600; margin-bottom: 6px; }
+  .q-text { font-size: 0.8125rem; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 12px; }
+
+  .choice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid transparent;
+    transition: all 0.15s;
+  }
+
+  .choice.selected {
+    background: rgba(67,97,238,0.2);
+    border-color: rgba(67,97,238,0.4);
+    color: rgba(255,255,255,0.9);
+  }
+
+  .choice-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    flex-shrink: 0;
+  }
+
+  .choice.selected .choice-dot {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .timer-bar {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .timer-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); font-weight: 600; }
+  .timer-value { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--amber); }
+
+  .progress-track {
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 65%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-mid) 100%);
+    border-radius: 4px;
+    animation: shrink 30s linear infinite;
+  }
+
+  @keyframes shrink {
+    from { width: 65%; }
+    to { width: 10%; }
+  }
+
+  .float-badge {
+    position: absolute;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 600;
+  }
+
+  .float-badge-1 { top: 0; left: -60px; animation: float 5s ease-in-out infinite 1s; }
+  .float-badge-2 { bottom: 40px; right: -50px; animation: float 7s ease-in-out infinite 0.5s; }
+
+  .badge-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.875rem;
+  }
+
+  /* ─── STATS ─── */
+  .stats {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .stat-item {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 25%; bottom: 25%;
+    width: 1px;
+    background: var(--border-dark);
+  }
+
+  @media (max-width: 600px) {
+    .stat-item:nth-child(2)::after { display: none; }
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-number span { color: var(--accent); }
+  .stat-label { font-size: 0.8125rem; color: var(--muted); font-weight: 600; }
+
+  /* ─── FEATURES ─── */
+  .features {
+    padding: 7rem 0;
+    background: var(--white);
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.875rem, 3.5vw, 2.875rem);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1.0625rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  @media (max-width: 768px) { .section-head { grid-template-columns: 1fr; } }
+
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) { .feat-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 580px) { .feat-grid { grid-template-columns: 1fr; } }
+
+  .feat-card {
+    background: var(--white);
+    padding: 2rem;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-mid) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .feat-card:hover::before { transform: scaleX(1); }
+  .feat-card:hover { background: var(--surface); }
+
+  .feat-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.375rem;
+  }
+
+  .feat-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .feat-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+  .feat-tag {
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how {
+    padding: 7rem 0;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(67,97,238,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(67,97,238,0.08) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .how .section-eyebrow { color: var(--accent-mid); }
+  .how .section-eyebrow::before { background: var(--accent-mid); }
+  .how .section-title { color: var(--white); }
+  .how .section-desc { color: rgba(255,255,255,0.45); max-width: 100%; }
+  .how .section-head { grid-template-columns: 1fr; text-align: center; align-items: center; }
+  .how .section-desc { margin: 0 auto; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 52px;
+    left: calc(16.67% + 24px);
+    right: calc(16.67% + 24px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(67,97,238,0.4), rgba(67,97,238,0.4), transparent);
+  }
+
+  @media (max-width: 800px) { .steps::before { display: none; } }
+
+  .step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 2.25rem 2rem;
+    transition: background 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step:hover {
+    background: rgba(67,97,238,0.08);
+    border-color: rgba(67,97,238,0.3);
+  }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    position: absolute;
+    top: 1.25rem; right: 1.5rem;
+    letter-spacing: -0.04em;
+  }
+
+  .step-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: rgba(67,97,238,0.15);
+    border: 1px solid rgba(67,97,238,0.25);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.375rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-label { font-size: 0.7rem; font-weight: 700; color: var(--accent-mid); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .step-title { font-family: 'Syne', sans-serif; font-size: 1.125rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+  .step-desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+  /* ─── CTA ─── */
+  .cta { padding: 6rem 0; background: var(--white); }
+
+  .cta-box { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .cta-inner {
+    background: var(--ink);
+    border-radius: 28px;
+    padding: 5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(67,97,238,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 80% 50%, rgba(247,37,133,0.12) 0%, transparent 60%);
+  }
+
+  .cta-inner .section-eyebrow { color: var(--accent-mid); position: relative; }
+  .cta-inner .section-eyebrow::before { background: var(--accent-mid); }
+
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .cta-desc {
+    font-size: 1.0625rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .cta-actions { position: relative; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-cta-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-cta-white:hover { background: var(--accent-light); color: var(--accent); transform: translateY(-2px); }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .btn-cta-ghost:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2.5rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo { display: flex; align-items: center; gap: 8px; }
+
+  .footer-logo-mark {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .footer-logo-text { font-family: 'Syne', sans-serif; font-size: 0.9375rem; font-weight: 800; color: var(--white); }
+  .footer-copy { font-size: 0.8125rem; color: rgba(255,255,255,0.3); }
+
+  .footer-oss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-oss-link:hover { color: rgba(255,255,255,0.75); }
+
+  /* ─── Animations ─── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .anim   { animation: fade-up 0.6s ease both; }
+  .anim-1 { animation-delay: 0.05s; }
+  .anim-2 { animation-delay: 0.15s; }
+  .anim-3 { animation-delay: 0.25s; }
+  .anim-4 { animation-delay: 0.35s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim, [style*="animation"] { animation: none !important; }
+  }
+</style>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Sekolix <span>CABT</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#fitur">Fitur</a></li>
+      <li><a href="#cara-kerja">Cara Kerja</a></li>
+      <li><a href="/docs/tentang">Dokumentasi</a></li>
+      <li>
+        <a href="https://github.com/your-org/sekolix-cabt" target="_blank" rel="noopener noreferrer" class="btn-nav btn-nav-github">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </li>
+      <li><a href="/docs/panduan-super-admin/instalasi" class="btn-nav btn-nav-primary">Mulai Pasang</a></li>
+    </ul>
+
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+      <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="#fitur">Fitur</a>
+    <a href="#cara-kerja">Cara Kerja</a>
+    <a href="/docs/tentang">Dokumentasi</a>
+    <a href="https://github.com/your-org/sekolix-cabt" target="_blank" rel="noopener noreferrer">GitHub (Open Source) ↗</a>
+    <a href="/docs/panduan-super-admin/instalasi">Mulai Pasang</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badges anim anim-1">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Computer Assisted Test
+        </div>
+        <a href="https://github.com/your-org/sekolix-cabt" target="_blank" rel="noopener noreferrer" class="hero-badge hero-badge-oss">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Open Source
+        </a>
+      </div>
+
+      <h1 class="hero-title anim anim-2">
+        Ujian Online<br>yang <em>Cerdas</em><br>&amp; Terukur
+      </h1>
+
+      <p class="hero-desc anim anim-3">
+        Platform CAT modern untuk sekolah — berbagai tipe soal, penilaian otomatis, batas waktu ketat, dan laporan nilai real-time. Siap pakai di shared hosting.
+      </p>
+
+      <div class="hero-actions anim anim-4">
+        <a href="/docs/tentang" class="btn-hero-primary">
+          Baca Dokumentasi
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#fitur" class="btn-hero-secondary">
+          Lihat Fitur
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="float-badge float-badge-1">
+        <div class="badge-icon" style="background:rgba(6,214,160,0.15);">✅</div>
+        Nilai Otomatis
+      </div>
+
+      <div class="hero-card">
+        <div class="card-header">
+          <span class="card-title">Sesi Ujian Aktif</span>
+          <span class="card-badge">LIVE</span>
+        </div>
+        <div class="question-block">
+          <div class="q-label">Soal 12 / 40</div>
+          <div class="q-text">Manakah pernyataan yang benar mengenai sistem tata surya?</div>
+          <div class="choice"><div class="choice-dot"></div> Matahari mengorbit Bumi setiap 365 hari</div>
+          <div class="choice selected"><div class="choice-dot"></div> Bumi berevolusi mengelilingi Matahari</div>
+          <div class="choice"><div class="choice-dot"></div> Bulan adalah bintang terkecil</div>
+          <div class="choice"><div class="choice-dot"></div> Mars lebih dekat ke Matahari dari Bumi</div>
+        </div>
+        <div class="timer-bar">
+          <span class="timer-label">Sisa Waktu</span>
+          <span class="timer-value">43:21</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="float-badge float-badge-2">
+        <div class="badge-icon" style="background:rgba(253,214,10,0.12);">📊</div>
+        Laporan Real-time
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">6<span>+</span></div>
+      <div class="stat-label">Tipe Soal</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100<span>%</span></div>
+      <div class="stat-label">Penilaian Otomatis</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Level Pengguna</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" style="font-size:1.5rem;">Real<span>-time</span></div>
+      <div class="stat-label">Laporan Nilai</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="fitur" class="features">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Fitur Unggulan</div>
+        <h2 class="section-title">Semua yang dibutuhkan<br>untuk ujian modern</h2>
+      </div>
+      <div>
+        <p class="section-desc">Dirancang ringan dan kompatibel dengan shared hosting, tanpa mengorbankan kelengkapan fitur untuk sekolah.</p>
+      </div>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#eef0ff;">📝</div>
+        <div class="feat-title">Beragam Tipe Soal</div>
+        <p class="feat-desc">Pilihan Ganda, Jawaban Jamak, Menjodohkan, Isian Singkat, Uraian, hingga PG Berbobot dengan penilaian fleksibel.</p>
+        <div class="feat-tag">→ 6 Tipe Soal</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#f0fdf4;">⚡</div>
+        <div class="feat-title">Penilaian Otomatis</div>
+        <p class="feat-desc">Nilai dihitung instan setelah ujian selesai. Rekap per soal, per peserta, dan seluruh kelas tersedia langsung.</p>
+        <div class="feat-tag">→ Instan &amp; Akurat</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#fff7ed;">⏱️</div>
+        <div class="feat-title">Timer Server-Side</div>
+        <p class="feat-desc">Waktu ujian dikontrol penuh oleh server. Auto-submit saat habis. Tidak bisa dimanipulasi dari browser.</p>
+        <div class="feat-tag">→ Auto-submit</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#f0fdf4;">👥</div>
+        <div class="feat-title">Manajemen Peserta</div>
+        <p class="feat-desc">Kelompokkan peserta per rombongan belajar, tugaskan ke sesi ujian tertentu, dan pantau progres pengerjaan.</p>
+        <div class="feat-tag">→ Per Rombel</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#fffbeb;">📊</div>
+        <div class="feat-title">Laporan &amp; Export</div>
+        <p class="feat-desc">Rekap nilai lengkap dapat diekspor ke Excel. Analisis distribusi soal dan statistik per ujian tersedia.</p>
+        <div class="feat-tag">→ Export Excel</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#fdf2f8;">🛡️</div>
+        <div class="feat-title">Token &amp; Keamanan</div>
+        <p class="feat-desc">Sesi ujian dapat dilindungi token akses. Pengacakan soal dan opsi mencegah mencontek antar peserta.</p>
+        <div class="feat-tag">→ Anti-mencontek</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="cara-kerja" class="how">
+  <div class="section-inner">
+    <div class="section-head" style="margin-bottom:3.5rem;">
+      <div>
+        <div class="section-eyebrow">Cara Kerja</div>
+        <h2 class="section-title">Mulai dalam 3 langkah</h2>
+        <p class="section-desc">Siapkan ujian, daftarkan peserta, dan biarkan sistem menangani penilaian secara otomatis.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">🗂️</div>
+        <div class="step-label">Langkah 1</div>
+        <div class="step-title">Buat Paket Ujian</div>
+        <p class="step-desc">Admin membuat bank soal dan mengatur paket ujian — tipe soal, bobot nilai, durasi, dan batasan percobaan.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">📅</div>
+        <div class="step-label">Langkah 2</div>
+        <div class="step-title">Jadwalkan Sesi</div>
+        <p class="step-desc">Buat sesi ujian dengan jadwal waktu, daftarkan rombongan belajar, dan aktifkan sesi saat siap.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">✨</div>
+        <div class="step-label">Langkah 3</div>
+        <div class="step-title">Nilai Otomatis</div>
+        <p class="step-desc">Peserta mengerjakan ujian secara online. Nilai dihitung instan dan laporan tersedia segera setelah selesai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-box">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="position:relative;">Siap Mulai?</div>
+      <h2 class="cta-title">Pasang di server sekolah<br>Anda sekarang</h2>
+      <p class="cta-desc">Open-source, self-hosted, dan sepenuhnya dapat dikustomisasi. Ikuti panduan instalasi kami untuk memulai.</p>
+      <div class="cta-actions">
+        <a href="/docs/panduan-super-admin/instalasi" class="btn-cta-white">
+          Panduan Instalasi
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/docs/tentang" class="btn-cta-ghost">
+          Baca Dokumentasi
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-mark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+      </div>
+      <span class="footer-logo-text">Sekolix CABT</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+      <p class="footer-copy">&copy; {new Date().getFullYear()} Sekolix CABT. Platform ujian online untuk sekolah.</p>
+      <a href="https://github.com/your-org/sekolix-cabt" target="_blank" rel="noopener noreferrer" class="footer-oss-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        Open Source · GitHub
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobile-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+  const iconMenu = toggle.querySelector('.icon-menu');
+  const iconClose = toggle.querySelector('.icon-close');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('drawer-open');
+    iconMenu.style.display = isOpen ? 'none' : '';
+    iconClose.style.display = isOpen ? '' : 'none';
+  });
+
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      drawer.classList.remove('drawer-open');
+      iconMenu.style.display = '';
+      iconClose.style.display = 'none';
+    });
+  });
+</script>
+
+</Landing>
