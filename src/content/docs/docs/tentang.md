@@ -35,7 +35,7 @@ Sekolix CABT adalah sistem **Computer Assisted Based Test (CAT)** berbasis web u
 
 Pilih panduan sesuai peran Anda:
 
-- [Panduan Peserta](/docs/panduan-peserta/login) — cara login dan mengerjakan ujian
-- [Panduan Guru](/docs/panduan-guru/bank-soal) — cara membuat soal dan memantau sesi
-- [Panduan Admin](/docs/panduan-admin/manajemen-user) — manajemen user dan laporan
-- [Panduan Super Admin](/docs/panduan-super-admin/instalasi) — instalasi dan konfigurasi server
+- [Panduan Peserta](/sekolix-cabt-site/docs/panduan-peserta/login) — cara login dan mengerjakan ujian
+- [Panduan Guru](/sekolix-cabt-site/docs/panduan-guru/bank-soal) — cara membuat soal dan memantau sesi
+- [Panduan Admin](/sekolix-cabt-site/docs/panduan-admin/manajemen-user) — manajemen user dan laporan
+- [Panduan Super Admin](/sekolix-cabt-site/docs/panduan-super-admin/instalasi) — instalasi dan konfigurasi server

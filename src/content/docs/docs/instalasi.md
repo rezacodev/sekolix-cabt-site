@@ -85,4 +85,4 @@ php artisan queue:work --daemon
 Jika menggunakan shared hosting tanpa akses daemon, gunakan cron job Cpanel setiap menit untuk `schedule:run`. Notifikasi email bersifat opsional — sistem tetap berjalan normal tanpanya.
 :::
 
-Panduan lengkap deployment production tersedia di [Panduan Super Admin](/docs/panduan-super-admin/instalasi).
+Panduan lengkap deployment production tersedia di [Panduan Super Admin](/sekolix-cabt-site/docs/panduan-super-admin/instalasi).

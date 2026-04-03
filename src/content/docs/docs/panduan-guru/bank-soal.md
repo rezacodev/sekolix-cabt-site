@@ -38,7 +38,7 @@ Untuk membuat teks rumpang di soal CLOZE, sisipkan kode `[_1]`, `[_2]`, dst. di 
 
 | Field | Keterangan |
 |---|---|
-| **Kategori** | Kelompok soal — pilih dari kategori yang sudah dibuat (lihat [Kategori Soal](/docs/panduan-guru/kategori-soal)) |
+| **Kategori** | Kelompok soal — pilih dari kategori yang sudah dibuat (lihat [Kategori Soal](/sekolix-cabt-site/docs/panduan-guru/kategori-soal)) |
 | **Tingkat Kesulitan** | Mudah / Sedang / Sulit — digunakan untuk filter dan statistik |
 | **Bobot** | Nilai maksimal soal ini dalam skala paket (default: 1) |
 | **Poin Negatif** | Pengurangan nilai jika jawaban salah (0 = tidak ada pengurangan) |
