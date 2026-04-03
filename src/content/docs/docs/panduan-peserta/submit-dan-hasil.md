@@ -27,6 +27,10 @@ Setelah submit, Anda akan melihat:
 - **Durasi** pengerjaan
 - **Ranking** dalam sesi (jika diaktifkan)
 
+:::note
+Jika paket ujian menggunakan **poin negatif**, jawaban salah akan mengurangi nilai. Nilai akhir tidak bisa negatif — batas terbawah adalah 0.
+:::
+
 :::caution
 Jika paket ujian menggunakan mode **penilaian manual**, nilai akhir akan muncul setelah guru selesai menilai soal uraian.
 :::
@@ -39,3 +43,12 @@ Setelah sesi ujian ditutup (jika diizinkan oleh guru), Anda dapat melihat:
 - Pembahasan soal
 
 Klik **"Lihat Review"** di halaman hasil untuk membuka halaman review.
+
+## Portofolio Ujian
+
+Halaman **Portofolio** di dashboard peserta menampilkan riwayat semua ujian yang pernah Anda ikuti:
+- Nama sesi dan tanggal
+- Nilai akhir per ujian
+- Grafik tren nilai dari waktu ke waktu
+
+Portofolio bisa diakses kapan saja dari dashboard peserta meskipun sesi sudah lama berakhir.

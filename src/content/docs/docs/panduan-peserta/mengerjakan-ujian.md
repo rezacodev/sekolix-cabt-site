@@ -23,12 +23,29 @@ Halaman ujian terdiri dari:
 
 ## Menjawab Soal
 
-- **PG / PG Berbobot / PG Majemuk** — klik opsi pilihan
-- **Menjodohkan** — pilih pasangan dari dropdown
-- **Isian Singkat** — ketik jawaban di kolom teks
-- **Uraian** — ketik di area teks; bisa juga upload file (JPEG/PNG/PDF, max 5 MB)
+| Tipe Soal | Cara Menjawab |
+|---|---|
+| **PG / PG Berbobot** | Klik salah satu opsi pilihan |
+| **PG Majemuk** | Klik satu atau lebih opsi (bisa memilih beberapa) |
+| **Benar/Salah (BS)** | Untuk setiap pernyataan, klik **Benar** atau **Salah** |
+| **Menjodohkan** | Pilih pasangan yang sesuai dari dropdown di sisi kanan |
+| **Isian Singkat** | Ketik jawaban di kolom teks |
+| **CLOZE (Isian Rumpang)** | Ketik jawaban untuk setiap bagian yang dikosongkan (blank) |
+| **Uraian** | Ketik di area teks; bisa juga upload file (JPEG/PNG/PDF, maks sesuai pengaturan) |
 
 Jawaban tersimpan otomatis setiap kali ada perubahan. Notifikasi **"Tersimpan ✓"** akan muncul di pojok layar.
+
+## Soal Audio
+
+Jika soal dilengkapi file audio, tombol **▶ Putar Audio** akan muncul di atas teks soal. Klik tombol tersebut untuk mendengarkan audio sebelum menjawab.
+
+:::note
+Pada beberapa ujian, audio hanya boleh diputar sekali. Perhatikan instruksi soal — jika ada keterangan "Putar 1x", pastikan Anda siap sebelum menekan play.
+:::
+
+## Timer per Soal
+
+Pada ujian tertentu, setiap soal memiliki **batas waktu tersendiri** (ditampilkan di bawah nomor soal). Jika waktu untuk satu soal habis, soal tersebut akan terkunci otomatis dan Anda akan berpindah ke soal berikutnya — jawaban yang sudah diisi tetap tersimpan.
 
 ## Menandai Ragu-ragu
 
@@ -37,9 +54,23 @@ Klik tombol **"Tandai Ragu-ragu"** di bawah soal. Soal akan berubah warna menjad
 ## Upload File URAIAN
 
 1. Di soal tipe URAIAN, klik tombol **"Upload File"**
-2. Pilih file (JPEG, PNG, atau PDF, maksimal 5 MB)
+2. Pilih file (JPEG, PNG, atau PDF, maksimal sesuai pengaturan sistem)
 3. File terupload akan tampil sebagai thumbnail/nama file
 
 :::tip
 Bisa langsung foto kertas coret-coretan menggunakan ponsel kemudian upload sebagai jawaban uraian.
+:::
+
+## Ujian Multi-Seksi
+
+Beberapa ujian dibagi menjadi beberapa **seksi** (bagian) dengan timer tersendiri per seksi — misalnya Seksi A (Listening) dan Seksi B (Reading).
+
+### Navigasi Antar Seksi
+
+- Palet soal hanya menampilkan soal di seksi yang sedang aktif
+- Setelah semua soal di seksi selesai (atau timer seksi habis), tombol **"Lanjut ke Seksi Berikutnya"** akan aktif
+- Konfirmasi sebelum pindah — **setelah berpindah seksi, Anda tidak bisa kembali ke seksi sebelumnya**
+
+:::caution
+Pastikan semua soal di seksi saat ini sudah dijawab atau ditandai sebelum menekan "Lanjut ke Seksi Berikutnya".
 :::

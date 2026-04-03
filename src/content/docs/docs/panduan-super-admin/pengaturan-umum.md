@@ -178,3 +178,54 @@ Mengatur fitur tampilan ranking real-time yang dapat dilihat selama atau setelah
 :::tip
 Aktifkan **Mode Publik** jika ingin menampilkan livescore di layar proyektor di ruang ujian tanpa harus login terlebih dahulu di komputer proyektor.
 :::
+
+---
+
+## 6. Soal Audio
+
+Mengatur batas ukuran file audio yang bisa diupload guru untuk soal bertipe audio.
+
+| Setting | Default | Keterangan |
+|---|---|---|
+| **Ukuran Maksimal Audio** | 10 MB | Batas ukuran file audio per soal. Format yang diterima: `.mp3`, `.wav` |
+
+:::note
+File audio tersimpan di `storage/app/public/audio/`. Pastikan storage sudah di-link (`php artisan storage:link`) dan sisa disk mencukupi jika banyak soal audio.
+:::
+
+---
+
+## 7. Notifikasi Email
+
+Mengatur pengiriman email otomatis ke peserta saat status sesi berubah.
+
+| Setting | Default | Keterangan |
+|---|---|---|
+| **Aktifkan Notifikasi Email** | Mati | Jika aktif, sistem mengirim email ke peserta terdaftar saat sesi diaktifkan dan saat sesi ditutup |
+| **Email Pengirim** | (dari `.env`) | Alamat email yang digunakan sebagai pengirim — diambil dari `MAIL_FROM_ADDRESS` di `.env` |
+
+:::caution
+Fitur ini membutuhkan **queue worker** yang berjalan di background (`php artisan queue:work`). Tanpa queue worker, email tidak akan terkirim meski pengaturan diaktifkan.
+
+Jika menggunakan shared hosting tanpa akses queue daemon, gunakan cron job setiap menit untuk `php artisan schedule:run` sebagai alternatif.
+:::
+
+:::tip
+Sebelum mengaktifkan, uji konfigurasi SMTP di `.env` terlebih dahulu dengan perintah:
+```bash
+php artisan tinker
+Mail::raw('Test', fn($m) => $m->to('youremail@example.com')->subject('Test'));
+```
+:::
+
+---
+
+## 8. Pengumuman
+
+Mengatur perilaku default fitur pengumuman yang ditampilkan di dashboard peserta dan guru.
+
+| Setting | Default | Keterangan |
+|---|---|---|
+| **Tampilkan Pengumuman di Dashboard** | Aktif | Jika aktif, pengumuman yang berstatus `aktif` ditampilkan di bagian atas dashboard peserta/guru |
+
+Pengumuman dikelola dari menu **Pengumuman** di sidebar. Setiap pengumuman dapat ditargetkan ke semua pengguna atau ke rombel tertentu, dan memiliki tanggal kedaluwarsa.
