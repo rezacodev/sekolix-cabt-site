@@ -2,7 +2,7 @@
 title: Pilihan Platform Deployment
 description: Perbandingan platform untuk deploy Sekolix CABT — Railway, Render, VPS, Docker, Fly.io, cPanel, DigitalOcean, Heroku, dan lainnya.
 sidebar:
-  order: 3
+  order: 1
 ---
 
 import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';

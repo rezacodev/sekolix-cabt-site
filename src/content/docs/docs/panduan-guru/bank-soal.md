@@ -24,9 +24,15 @@ sidebar:
 | **PG** | Teks soal, minimal 2 opsi, pilih 1 kunci jawaban |
 | **PG Berbobot** | Teks soal, opsi + persentase bobot tiap opsi (total tidak harus 100%) |
 | **PG Majemuk** | Teks soal, opsi, pilih satu atau lebih kunci jawaban |
+| **Benar/Salah (BS)** | Teks soal, pernyataan-pernyataan yang harus ditandai Benar atau Salah |
 | **Menjodohkan** | Teks soal, pasangan premis (kiri) dan respons (kanan) |
 | **Isian Singkat** | Teks soal, daftar keyword yang diterima sebagai jawaban benar |
+| **CLOZE (Isian Rumpang)** | Teks soal dengan `[_1]`, `[_2]`, dst. sebagai penanda blank; isi kunci jawaban per blank |
 | **Uraian** | Teks soal, kisi-kisi penilaian (opsional — hanya panduan untuk guru saat grading) |
+
+:::tip[CLOZE]
+Untuk membuat teks rumpang di soal CLOZE, sisipkan kode `[_1]`, `[_2]`, dst. di dalam teks soal. Sistem akan secara otomatis menampilkan kolom isian di posisi tersebut saat peserta mengerjakan ujian.
+:::
 
 ## Field Umum Tiap Soal
 
@@ -35,6 +41,13 @@ sidebar:
 | **Kategori** | Kelompok soal — pilih dari kategori yang sudah dibuat (lihat [Kategori Soal](/docs/panduan-guru/kategori-soal)) |
 | **Tingkat Kesulitan** | Mudah / Sedang / Sulit — digunakan untuk filter dan statistik |
 | **Bobot** | Nilai maksimal soal ini dalam skala paket (default: 1) |
+| **Poin Negatif** | Pengurangan nilai jika jawaban salah (0 = tidak ada pengurangan) |
+| **Bloom Level** | Taksonomi Bloom soal (C1–C6) — untuk filter dan kisi-kisi |
+| **KD / CP** | Kompetensi Dasar atau Capaian Pembelajaran sesuai kurikulum |
+| **Tag** | Label bebas untuk soal — misalnya HOTS, Numerasi, Olimpiade |
+| **Audio** | Upload file audio (.mp3/.wav, maks sesuai pengaturan) — peserta klik play sebelum menjawab |
+| **Grup / Stimulus** | Kelompokkan soal di bawah satu bacaan/stimulus yang sama |
+| **Visibilitas** | `Pribadi` (hanya pemilik), `Sekolah` (semua guru di sekolah ini), `Publik` (semua guru) |
 | **Pembahasan** | Penjelasan jawaban — ditampilkan ke peserta saat review diizinkan |
 | **Lock Position** | Jika dicentang, soal tidak ikut diacak meski paket menggunakan Acak Soal |
 | **Aktif** | Soal nonaktif tidak bisa dimasukkan ke paket ujian baru |
@@ -42,6 +55,20 @@ sidebar:
 :::tip
 Gunakan **Lock Position** untuk soal instruksi, soal pembuka, atau soal yang harus selalu ada di posisi pertama/terakhir.
 :::
+
+## Soal Audio
+
+1. Di form edit soal, centang **"Soal Audio"** atau upload file di kolom **Audio**
+2. Upload file `.mp3` atau `.wav` (batas ukuran diatur di Pengaturan Umum)
+3. Saat peserta mengerjakan, tombol **▶ Play** muncul di atas soal — peserta harus mendengarkan audio sebelum menjawab
+
+## Soal dengan Stimulus / Grup
+
+Gunakan fitur ini ketika beberapa soal merujuk pada teks bacaan, tabel, atau gambar yang sama:
+
+1. Buat/pilih **Grup Soal** — isikan judul dan konten stimulus (teks, gambar, tabel)
+2. Saat membuat soal, pilih **Grup** yang sesuai
+3. Semua soal dalam grup yang sama akan ditampilkan bersama stimulus saat ujian
 
 ## Mengedit Soal
 
@@ -81,8 +108,12 @@ Di halaman Bank Soal, gunakan kombinasi filter untuk menemukan soal dengan cepat
 | Filter | Keterangan |
 |---|---|
 | **Kategori** | Filter berdasarkan kategori (mendukung hierarki — memilih induk menampilkan semua sub-kategori) |
-| **Tipe Soal** | PG, PG Berbobot, PG Majemuk, Menjodohkan, Isian, Uraian |
+| **Tipe Soal** | PG, PG Berbobot, PG Majemuk, BS, Menjodohkan, Isian, CLOZE, Uraian |
 | **Tingkat Kesulitan** | Mudah, Sedang, atau Sulit |
+| **Bloom Level** | C1 – C6 |
+| **Tag** | Filter berdasarkan label tag |
+| **KD / CP** | Filter berdasarkan mapping kurikulum |
+| **Visibilitas** | Pribadi / Sekolah / Publik |
 | **Status Aktif** | Hanya soal aktif, hanya nonaktif, atau semua |
 | **Pencarian teks** | Cari berdasarkan cuplikan teks soal |
 

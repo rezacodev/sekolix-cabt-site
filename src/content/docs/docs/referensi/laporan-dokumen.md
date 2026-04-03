@@ -15,6 +15,11 @@ Laporan tersedia dalam dua format output:
 |---|---|
 | **Tampilan Browser** | Langsung bisa dilihat dan dicetak (Ctrl+P → Save as PDF atau ke printer) |
 | **Export Excel (.xlsx)** | Diunduh untuk diolah lebih lanjut, integrasi dengan sistem rapor, atau diarsipkan |
+| **Export PDF** | PDF resmi yang di-generate server, dilengkapi **QR code** untuk verifikasi keaslian dokumen |
+
+:::tip[QR Code]
+Setiap PDF yang di-export membawa QR code unik per dokumen. Pihak yang menerima dokumen bisa memindai QR tersebut untuk memverifikasi keaslian dokumen secara online.
+:::
 
 ---
 
@@ -176,7 +181,30 @@ Kartu dicetak dalam format **grid** — biasanya 2 atau 4 kartu per halaman A4, 
 
 ---
 
-## 5. Statistik Soal (Item Analysis)
+## 5. Rekap Kecurangan
+
+Laporan ringkasan semua insiden anti-kecurangan yang terdeteksi selama sesi ujian.
+
+### Cara Mengakses
+
+1. Klik **Laporan** → **Rekap Kecurangan** (atau dari halaman detail sesi → tab **"Kecurangan"**)
+2. Pilih **Sesi Ujian**
+
+### Isi Laporan
+
+| Kolom | Keterangan |
+|---|---|
+| **Nama Peserta** | Identitas peserta |
+| **Tab Switch** | Total perpindahan tab/fokus yang terdeteksi |
+| **Fullscreen Exit** | Jumlah keluar dari mode fullscreen |
+| **Status** | Normal / Diskualifikasi |
+| **Catatan** | Catatan pengawas manual (jika ada) |
+
+Laporan ini berguna sebagai bukti pendukung jika ada peserta yang mengajukan keberatan atas diskualifikasi.
+
+---
+
+## 6. Statistik Soal (Item Analysis)
 
 Laporan analisis kualitas butir soal berdasarkan data jawaban nyata dari peserta yang sudah menyelesaikan ujian.
 

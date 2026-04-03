@@ -82,6 +82,11 @@ Admin dapat mengakses laporan untuk sesi manapun, tidak terbatas sesi milik send
 2. Pilih sesi dari dropdown — semua sesi tersedia
 3. Tabel rekap nilai semua peserta tampil lengkap dengan statistik deskriptif
 4. Klik **"Export Excel"** untuk mengunduh file `.xlsx`
+5. Klik **"Export PDF"** untuk mengunduh laporan PDF ber-QR code
+
+### Rekap Kecurangan
+
+Tersedia di tab **"Kecurangan"** pada halaman detail sesi atau di **Laporan → Rekap Kecurangan**. Menampilkan rekap tab-switch, fullscreen exit, status diskualifikasi, dan catatan pengawas untuk setiap peserta di sesi tersebut.
 
 ### Statistik Soal (Item Analysis)
 
@@ -131,6 +136,6 @@ Admin memiliki akses ke semua dokumen cetak untuk semua sesi:
 |---|---|
 | **Daftar Hadir** | Daftar peserta per rombel dengan kolom tanda tangan |
 | **Berita Acara** | Rekap formal pelaksanaan ujian dengan distribusi nilai dan kolom tanda tangan pengawas |
-| **Kartu Peserta** | Kartu identitas berisi nomor peserta, nama, nama sesi — dicetak grid siap potong |
+| **Kartu Peserta** | Kartu identitas berisi nomor peserta, nama, nama sesi — dilengkapi QR code; dicetak grid siap potong |
 
-Semua dokumen menyertakan nama sekolah dan logo sesuai konfigurasi di **Pengaturan Umum**.
+Semua dokumen menyertakan nama sekolah dan logo sesuai konfigurasi di **Pengaturan Umum**. Tersedia juga tombol **"Export PDF"** di setiap laporan untuk menghasilkan file PDF resmi ber-QR code.
