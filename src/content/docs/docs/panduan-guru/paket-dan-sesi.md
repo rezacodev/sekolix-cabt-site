@@ -11,7 +11,7 @@ Paket ujian adalah **konfigurasi ujian** — kumpulan soal yang dipilih dari ban
 
 ### Membuat Paket Ujian
 
-1. Klik **Paket Ujian** di sidebar → **"Tambah Paket"**
+1. Di sidebar, buka grup **Ujian** → klik **Paket Ujian** → **"Tambah Paket"**
 2. Isi konfigurasi:
 
 | Field | Keterangan |
@@ -37,7 +37,7 @@ Paket ujian adalah **konfigurasi ujian** — kumpulan soal yang dipilih dari ban
 
 Sebelum menyusun paket, buat **Blueprint** sebagai panduan distribusi soal:
 
-1. Klik **Blueprint Ujian** di sidebar → **"Tambah Blueprint"**
+1. Di sidebar, buka grup **Ujian** → klik **Blueprint Ujian** → **"Tambah Blueprint"**
 2. Beri nama dan tentukan jumlah total soal yang ditargetkan
 3. Tambahkan item per tipe soal, tingkat kesulitan, KD/CP, dan Bloom level
 4. Saat membuat paket, pilih Blueprint → sistem memvalidasi apakah komposisi soal yang dipilih sesuai blueprint
@@ -75,7 +75,7 @@ Sesi adalah **jadwal penggunaan paket ujian** untuk sekumpulan peserta tertentu.
 
 ### Membuat Sesi Ujian
 
-1. Klik **Sesi Ujian** di sidebar → **"Tambah Sesi"**
+1. Di sidebar, buka grup **Ujian** → klik **Sesi Ujian** → **"Tambah Sesi"**
 2. Isi detail sesi:
 
 | Field | Keterangan |
@@ -105,7 +105,7 @@ Untuk ujian di lab komputer, gunakan token pendek yang mudah diketik (4–6 angk
 
 ### Kalender Sesi
 
-Semua sesi yang sudah dibuat ditampilkan di **Kalender Ujian** (menu tersendiri di sidebar). Tampilan kalender interaktif memperlihatkan jadwal semua sesi dalam satu tampilan bulanan/mingguan — berguna untuk menghindari jadwal bentrok antar kelas.
+Semua sesi yang sudah dibuat ditampilkan di **Kalender Ujian** (di sidebar, dalam grup **Ujian**). Tampilan kalender interaktif memperlihatkan jadwal semua sesi dalam satu tampilan bulanan/mingguan — berguna untuk menghindari jadwal bentrok antar kelas.
 
 ### Alur Status Sesi
 
@@ -192,7 +192,7 @@ Paket ujian adalah **konfigurasi ujian** — kumpulan soal yang dipilih dari ban
 
 ### Membuat Paket Ujian
 
-1. Klik **Paket Ujian** di sidebar → **"Tambah Paket"**
+1. Di sidebar, buka grup **Ujian** → klik **Paket Ujian** → **"Tambah Paket"**
 2. Isi konfigurasi:
 
 | Field | Keterangan |
@@ -228,7 +228,7 @@ Sesi adalah **jadwal penggunaan paket ujian** untuk sekumpulan peserta tertentu.
 
 ### Membuat Sesi Ujian
 
-1. Klik **Sesi Ujian** di sidebar → **"Tambah Sesi"**
+1. Di sidebar, buka grup **Ujian** → klik **Sesi Ujian** → **"Tambah Sesi"**
 2. Isi detail sesi:
 
 | Field | Keterangan |

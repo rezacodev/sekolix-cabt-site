@@ -10,7 +10,7 @@ import { Aside } from '@astrojs/starlight/components';
 ## Mengakses Pengaturan Umum
 
 1. Login ke panel admin di `/cabt` sebagai **Super Admin**
-2. Di sidebar bagian bawah, klik **Pengaturan Umum**
+2. Klik ikon akun di kanan atas → pilih **Pengaturan Umum**
 
 :::caution
 Halaman ini hanya dapat diakses oleh akun dengan **level Super Admin (level 4)**. Akun Admin biasa tidak memiliki akses ke halaman ini.
@@ -228,4 +228,4 @@ Mengatur perilaku default fitur pengumuman yang ditampilkan di dashboard peserta
 |---|---|---|
 | **Tampilkan Pengumuman di Dashboard** | Aktif | Jika aktif, pengumuman yang berstatus `aktif` ditampilkan di bagian atas dashboard peserta/guru |
 
-Pengumuman dikelola dari menu **Pengumuman** di sidebar. Setiap pengumuman dapat ditargetkan ke semua pengguna atau ke rombel tertentu, dan memiliki tanggal kedaluwarsa.
+Pengumuman dikelola dari menu **Pengumuman** di menu akun (klik avatar di kanan atas). Setiap pengumuman dapat ditargetkan ke semua pengguna atau ke rombel tertentu, dan memiliki tanggal kedaluwarsa.

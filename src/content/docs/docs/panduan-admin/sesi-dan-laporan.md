@@ -16,7 +16,7 @@ Berbeda dengan Guru yang hanya melihat sesi buatannya sendiri, **Admin dapat mel
 ## Melihat Semua Sesi Ujian
 
 1. Login ke panel admin di `/cabt`
-2. Di sidebar, klik **Sesi Ujian**
+2. Di sidebar, buka grup **Ujian** → klik **Sesi Ujian**
 
 Tabel sesi menampilkan **semua sesi dari semua guru**, dengan kolom:
 

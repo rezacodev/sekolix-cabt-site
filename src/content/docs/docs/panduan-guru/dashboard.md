@@ -77,4 +77,4 @@ Dari dashboard Anda dapat langsung melakukan:
 | **Buka monitor peserta real-time** | Klik tombol **"Monitor"** di header tabel rombel |
 | **Buka halaman livescore** | Klik **"Livescore"** — terbuka di tab baru |
 | **Lihat detail attempt peserta** | Klik nama peserta di tabel → tampil jawaban per soal dan log aktivitas |
-| **Lanjut ke grading uraian** | Klik menu **Grading** di sidebar — bukan dari dashboard |
+| **Lanjut ke penilaian uraian** | Klik menu **Penilaian** di sidebar (di dalam grup **Ujian**) — bukan dari dashboard |

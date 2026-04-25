@@ -31,7 +31,11 @@ IPA
 ## Membuka Halaman Kategori
 
 1. Login ke panel admin di `/cabt`
-2. Di sidebar, klik **Kategori Soal**
+2. Buka **Bank Soal**, lalu klik menu **Pengaturan Bank Soal** di header → pilih **Kategori Soal**
+
+:::note
+Menu **Kategori Soal** tidak lagi muncul langsung di sidebar. Akses sekarang melalui menu **Pengaturan Bank Soal** di halaman **Bank Soal**.
+:::
 
 ## Membuat Kategori Baru
 

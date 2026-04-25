@@ -11,7 +11,7 @@ Jika paket ujian mengandung soal **Uraian**, guru perlu menilai jawaban peserta 
 
 ### Langkah Penilaian
 
-1. **Grading** → pilih sesi yang ingin dinilai
+1. **Penilaian** → pilih sesi yang ingin dinilai
 2. Daftar peserta dengan soal uraian yang belum dinilai akan muncul
 3. Klik peserta → tampil semua soal uraian + jawaban/file yang diupload
 4. Masukkan **nilai** untuk tiap soal uraian (0 – bobot soal)
