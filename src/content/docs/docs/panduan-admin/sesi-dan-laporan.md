@@ -106,6 +106,14 @@ Fitur analisis butir soal membantu mengevaluasi **kualitas setiap soal** dalam s
 | **Kategori P** | Mudah / Sedang / Sulit |
 | **Kategori D** | Baik Sekali / Baik / Cukup / Kurang Baik |
 
+### Analisis Ulangan
+
+Analisis Ulangan Harian menyediakan ringkasan ketuntasan, distribusi nilai, dan rekomendasi program pengayaan untuk setiap sesi.
+
+1. Buka detail sesi ujian → klik action **Analisis Ulangan**
+2. Atau buka langsung URL `/cabt/analisis/{sessionId}`
+3. Halaman menampilkan ringkasan ketuntasan individual dan klasikal, distribusi skor, dan rekomendasi pengayaan/remidi
+
 #### Interpretasi P-value (Indeks Kesulitan)
 
 | Nilai P | Kategori | Arti |

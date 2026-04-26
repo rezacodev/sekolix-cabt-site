@@ -37,13 +37,13 @@ Paket ujian adalah **konfigurasi ujian** — kumpulan soal yang dipilih dari ban
 
 Sebelum menyusun paket, buat **Blueprint** sebagai panduan distribusi soal:
 
-1. Di sidebar, buka grup **Ujian** → klik **Blueprint Ujian** → **"Tambah Blueprint"**
+1. Di sidebar, buka grup **Kurikulum** → klik **Blueprint Ujian** → **"Tambah Blueprint"**
 2. Beri nama dan tentukan jumlah total soal yang ditargetkan
 3. Tambahkan item per tipe soal, tingkat kesulitan, KD/CP, dan Bloom level
 4. Saat membuat paket, pilih Blueprint → sistem memvalidasi apakah komposisi soal yang dipilih sesuai blueprint
 
 :::tip
-Blueprint cocok untuk ujian formal (PTS/PAS) yang harus sesuai kisi-kisi kurikulum yang sudah ditetapkan.
+Blueprint tidak wajib dibuat, akan tetapi cocok untuk ujian formal (PTS/PAS) yang harus sesuai kisi-kisi kurikulum yang sudah ditetapkan.
 :::
 
 ### Paket Multi-Seksi
@@ -85,6 +85,10 @@ Sesi adalah **jadwal penggunaan paket ujian** untuk sekumpulan peserta tertentu.
 | **Token Akses** | Kode yang harus dimasukkan peserta sebelum mulai ujian (lihat detail di bawah) |
 | **Waktu Mulai** | Jadwal mulai sesi — peserta tidak bisa mulai sebelum waktu ini |
 | **Waktu Selesai** | Jadwal berakhir sesi — peserta tidak bisa mulai baru setelah waktu ini |
+| **KKM** | Nilai minimum ketuntasan — peserta dianggap tuntas jika nilai akhir ≥ KKM |
+| **KKM Klasikal Soal** | Persentase peserta minimal yang harus menjawab benar agar soal dianggap tuntas klasikal |
+| **Batas Pengayaan 1** | Ambang pertama untuk rentang pengayaan setelah KKM |
+| **Batas Pengayaan 2** | Ambang kedua untuk rentang pengayaan di atas batas pertama |
 
 3. Assign peserta: pilih per **Rombel** (semua anggota dimasukkan otomatis) atau per **Individu**
 4. Klik **"Simpan"** → sesi tersimpan dengan status `Draft`
@@ -238,6 +242,10 @@ Sesi adalah **jadwal penggunaan paket ujian** untuk sekumpulan peserta tertentu.
 | **Token Akses** | Kode yang harus dimasukkan peserta sebelum mulai ujian (lihat detail di bawah) |
 | **Waktu Mulai** | Jadwal mulai sesi — peserta tidak bisa mulai sebelum waktu ini |
 | **Waktu Selesai** | Jadwal berakhir sesi — peserta tidak bisa mulai baru setelah waktu ini |
+| **KKM** | Nilai minimum ketuntasan — peserta dianggap tuntas jika nilai akhir ≥ KKM |
+| **KKM Klasikal Soal** | Persentase peserta minimal yang harus menjawab benar agar soal dianggap tuntas klasikal |
+| **Batas Pengayaan 1** | Ambang pertama untuk rentang pengayaan setelah KKM |
+| **Batas Pengayaan 2** | Ambang kedua untuk rentang pengayaan di atas batas pertama |
 
 3. Assign peserta: pilih per **Rombel** (semua anggota dimasukkan otomatis) atau per **Individu**
 4. Klik **"Simpan"** → sesi tersimpan dengan status `Draft`
