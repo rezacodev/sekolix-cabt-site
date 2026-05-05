@@ -47,13 +47,18 @@ Halaman livescore menampilkan tabel ranking dengan kolom berikut:
 |---|---|
 | **#** | Peringkat peserta — 1 berarti nilai tertinggi |
 | **Nama** | Nama lengkap peserta |
-| **No. Peserta** | Nomor identitas ujian |
-| **Rombel** | Kelas / kelompok belajar peserta |
+| **No. Peserta** | Nomor identitas ujian *(tersembunyi di layar kecil/mobile)* |
+| **Rombel** | Kelas / kelompok belajar peserta *(tersembunyi di layar kecil/mobile)* |
 | **Nilai** | Nilai akhir dalam skala 0–100 |
 | **Benar** | Jumlah soal yang dijawab benar |
-| **Status** | Status pengerjaan: Sedang / Selesai |
+
+Di bagian atas tabel terdapat tiga kartu ringkasan: **Total Peserta**, **Sudah Selesai**, dan **Rata-rata Nilai** — ketiganya diperbarui otomatis setiap halaman di-refresh.
 
 Di bagian bawah tabel ditampilkan **rata-rata nilai** dari seluruh peserta yang sudah mengumpulkan jawaban.
+
+:::tip
+Saat menampilkan livescore di proyektor, gunakan layar yang lebar (laptop atau desktop) agar kolom No. Peserta dan Rombel ikut tampil.
+:::
 
 ## Pembaruan Otomatis
 

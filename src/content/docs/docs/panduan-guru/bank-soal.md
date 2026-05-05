@@ -121,16 +121,63 @@ Filter dapat dikombinasikan — misalnya: "Kategori = Matematika, Tipe = PG, Kes
 
 ## Import Soal dari Excel
 
-Untuk memasukkan banyak soal sekaligus:
+Untuk memasukkan banyak soal sekaligus, sistem menggunakan alur **2 langkah**: upload → pratinjau → konfirmasi.
 
-1. Klik **"Import dari Excel"**
-2. Klik **"Download Template"** — wajib gunakan template ini
-3. Isi soal sesuai format kolom di template
-4. Upload file Excel → sistem memvalidasi setiap baris dan mengimpor yang valid
-5. Laporan import ditampilkan: jumlah berhasil, baris yang gagal, dan alasan kegagalan
+### Langkah 1 — Upload File
+
+1. Klik tombol **"Import dari Excel"** di halaman Bank Soal — halaman import khusus akan terbuka
+2. Klik **"Download Template"** untuk mendapatkan template Excel yang wajib digunakan
+3. Template terdiri dari **2 sheet**:
+   - **Sheet "Data"** — berisi contoh pengisian 5 baris (PG, PG Majemuk, Benar/Salah, Isian, Uraian)
+   - **Sheet "Petunjuk Pengisian"** — deskripsi tiap kolom, aturan per tipe soal, dan catatan penting
+4. Isi soal sesuai format, lalu upload file ke halaman import
+
+### Langkah 2 — Pratinjau & Konfirmasi
+
+Setelah file diupload, sistem membaca semua baris dan menampilkan **ringkasan validasi** sebelum ada data yang disimpan:
+
+| Informasi | Keterangan |
+|---|---|
+| **Total baris** | Jumlah baris berisi data (baris kosong dilewati otomatis) |
+| **Baris valid** | Baris yang siap diimpor |
+| **Baris tidak valid** | Baris yang gagal validasi, beserta daftar alasan per baris |
+
+Gulir ke bawah untuk melihat:
+- **Tabel soal valid** — pratinjau teks soal, tipe, kategori, kesulitan, dan bobot
+- **Tabel soal tidak valid** — nomor baris, teks soal, dan pesan kesalahan spesifik
+
+Klik **"Import Sekarang"** untuk menyimpan soal-soal valid ke bank soal. Baris yang tidak valid dilewati secara otomatis.
+
+:::note
+Proses import **tidak dapat dibatalkan** setelah dikonfirmasi. Pastikan soal valid sudah benar sebelum klik "Import Sekarang".
+:::
+
+### Aturan Validasi per Tipe Soal
+
+| Tipe | Kunci Wajib | Catatan |
+|---|---|---|
+| **PG / PG Berbobot / PG Majemuk** | `opsi_a` – `opsi_d` dan `kunci` | `kunci` berisi huruf opsi, mis. `A` atau `A,C` untuk Majemuk |
+| **Benar/Salah** | `kunci` | Isi `B` untuk Benar, `S` untuk Salah — pisah koma jika lebih dari satu pernyataan |
+| **Isian Singkat** | `kunci` | Keyword jawaban yang diterima, dipisah koma |
+| **Uraian** | `teks_soal` | `kunci` bersifat opsional (kisi-kisi panduan guru) |
+| **Menjodohkan** | — | Tidak didukung via import; buat manual melalui form |
+
+### Kolom Excel yang Didukung
+
+| Kolom | Wajib | Keterangan |
+|---|---|---|
+| `tipe_soal` | ✅ | Salah satu: `PG`, `PGB`, `PGJ`, `BS`, `JODOH`, `ISIAN`, `CLOZE`, `URAIAN` |
+| `teks_soal` | ✅ | Teks pertanyaan |
+| `kategori` | — | Nama kategori (harus sudah ada di sistem) |
+| `kesulitan` | — | `mudah`, `sedang`, atau `sulit` (default: `sedang`) |
+| `bobot` | — | Angka (default: `1`) |
+| `opsi_a` – `opsi_e` | Kondisional | Wajib untuk PG/PGB/PGJ |
+| `kunci` | Kondisional | Jawaban benar |
+| `pembahasan` | — | Ditampilkan saat review diizinkan |
+| `bloom` | — | Level Bloom C1–C6 |
 
 :::tip
-Import Excel paling efisien untuk soal tipe **PG** dalam jumlah besar. Untuk tipe Menjodohkan, PG Berbobot, atau Uraian dengan pembahasan panjang, buat soal secara manual via form agar lebih akurat.
+Import Excel paling efisien untuk soal tipe **PG** dalam jumlah besar. Untuk tipe Menjodohkan atau Uraian dengan pembahasan panjang, buat soal secara manual via form agar lebih akurat.
 :::
 
 :::note

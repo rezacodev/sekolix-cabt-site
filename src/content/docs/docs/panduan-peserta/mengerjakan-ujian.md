@@ -33,7 +33,7 @@ Halaman ujian terdiri dari:
 | **CLOZE (Isian Rumpang)** | Ketik jawaban untuk setiap bagian yang dikosongkan (blank) |
 | **Uraian** | Ketik di area teks; bisa juga upload file (JPEG/PNG/PDF, maks sesuai pengaturan) |
 
-Jawaban tersimpan otomatis setiap kali ada perubahan. Notifikasi **"Tersimpan ✓"** akan muncul di pojok layar.
+Jawaban tersimpan otomatis setiap kali ada perubahan. Palet soal langsung berubah warna (abu-abu → hijau) begitu Anda memilih jawaban — tanpa perlu menunggu konfirmasi dari server. Notifikasi **"Tersimpan ✓"** muncul setelah server mengonfirmasi penyimpanan.
 
 ## Soal Audio
 

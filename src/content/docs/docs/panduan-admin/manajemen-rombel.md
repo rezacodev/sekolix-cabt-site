@@ -85,8 +85,8 @@ Guru yang dilepas dari rombel **tidak kehilangan akses ke sesi-sesi ujian yang s
 
 1. Buka halaman detail rombel → klik tab **"Peserta"**
 2. Klik **"Tambah Peserta"**
-3. Cari peserta berdasarkan nama atau username
-4. Pilih dari hasil pencarian
+3. Ketik nama atau nomor peserta di kolom pencarian — hasil pencarian menampilkan format **[nomor peserta] Nama Lengkap** agar mudah diidentifikasi saat ada nama yang mirip
+4. Pilih peserta dari hasil pencarian
 5. Klik **"Simpan"**
 
 ### Menambah Peserta Massal via Import Excel
