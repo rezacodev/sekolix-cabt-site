@@ -9,11 +9,11 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## Mengakses Pengaturan Umum
 
-1. Login ke panel admin di `/cabt` sebagai **Super Admin**
+1. Login ke panel admin di `/cabt` sebagai **Admin** atau **Super Admin**
 2. Klik ikon akun di kanan atas → pilih **Pengaturan Umum**
 
-:::caution
-Halaman ini hanya dapat diakses oleh akun dengan **level Super Admin (level 4)**. Akun Admin biasa tidak memiliki akses ke halaman ini.
+:::note
+Halaman ini dapat diakses oleh akun dengan **level Admin (level 3) atau Super Admin (level 4)**. Guru tidak memiliki akses ke halaman ini.
 :::
 
 Perubahan pada Pengaturan Umum **langsung aktif** tanpa perlu restart aplikasi. Setiap bagian disimpan secara terpisah dengan tombol **"Simpan"** masing-masing.
@@ -111,12 +111,6 @@ Saat mode fullscreen aktif:
 - Jika peserta keluar dari fullscreen (tekan Esc), sistem menampilkan peringatan
 - Keluar fullscreen dihitung menggunakan counter perpindahan tab yang sama
 
-### Batas Ukuran Upload File
-
-| Setting | Default | Keterangan |
-|---|---|---|
-| **Ukuran Maksimal Upload** | 5 MB | Batas ukuran file yang bisa diupload peserta untuk soal Uraian. Format yang diterima: JPEG, PNG, PDF |
-
 ### Whitelist IP Ujian
 
 | Setting | Default | Keterangan |
@@ -146,7 +140,22 @@ Format konfigurasi — satu entri per baris:
 
 ---
 
-## 4. Penilaian & Tampilan Hasil
+## 4. Batas Ukuran Upload File
+
+Mengatur ukuran maksimal file yang dapat diupload di halaman ujian maupun bank soal.
+
+| Setting | Default | Keterangan |
+|---|---|---|
+| **Ukuran Maksimal Upload** | 5 MB | Batas ukuran file yang bisa diupload peserta untuk jawaban soal Uraian. Format yang diterima: JPEG, PNG, PDF |
+| **Ukuran Maksimal Audio** | 10 MB | Batas ukuran file audio per soal yang diupload guru di bank soal. Format yang diterima: `.mp3`, `.wav` |
+
+:::note
+File audio tersimpan di `storage/app/public/audio/`. Pastikan storage sudah di-link (`php artisan storage:link`) dan sisa kapasitas disk mencukupi jika banyak soal audio.
+:::
+
+---
+
+## 5. Penilaian & Tampilan Hasil
 
 Mengatur kapan dan bagaimana nilai serta pembahasan ditampilkan kepada peserta.
 
@@ -166,7 +175,7 @@ Mengatur kapan dan bagaimana nilai serta pembahasan ditampilkan kepada peserta.
 
 ---
 
-## 5. Livescore
+## 6. Livescore
 
 Mengatur fitur tampilan ranking real-time yang dapat dilihat selama atau setelah ujian berlangsung.
 
@@ -177,20 +186,6 @@ Mengatur fitur tampilan ranking real-time yang dapat dilihat selama atau setelah
 
 :::tip
 Aktifkan **Mode Publik** jika ingin menampilkan livescore di layar proyektor di ruang ujian tanpa harus login terlebih dahulu di komputer proyektor.
-:::
-
----
-
-## 6. Soal Audio
-
-Mengatur batas ukuran file audio yang bisa diupload guru untuk soal bertipe audio.
-
-| Setting | Default | Keterangan |
-|---|---|---|
-| **Ukuran Maksimal Audio** | 10 MB | Batas ukuran file audio per soal. Format yang diterima: `.mp3`, `.wav` |
-
-:::note
-File audio tersimpan di `storage/app/public/audio/`. Pastikan storage sudah di-link (`php artisan storage:link`) dan sisa disk mencukupi jika banyak soal audio.
 :::
 
 ---
@@ -228,4 +223,4 @@ Mengatur perilaku default fitur pengumuman yang ditampilkan di dashboard peserta
 |---|---|---|
 | **Tampilkan Pengumuman di Dashboard** | Aktif | Jika aktif, pengumuman yang berstatus `aktif` ditampilkan di bagian atas dashboard peserta/guru |
 
-Pengumuman dikelola dari menu **Pengumuman** di menu akun (klik avatar di kanan atas). Setiap pengumuman dapat ditargetkan ke semua pengguna atau ke rombel tertentu, dan memiliki tanggal kedaluwarsa.
+Pengumuman dikelola dari menu **Pengumuman** di sidebar panel admin. Setiap pengumuman dapat ditargetkan ke semua pengguna atau ke rombel tertentu, dan memiliki tanggal mulai dan tanggal kedaluwarsa.

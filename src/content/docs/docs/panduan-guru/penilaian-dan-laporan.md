@@ -7,18 +7,19 @@ sidebar:
 
 ## Manual Grading (Soal Uraian)
 
-Jika paket ujian mengandung soal **Uraian**, guru perlu menilai jawaban peserta secara manual.
+Jika paket ujian mengandung soal **Uraian** dan **Mode Penilaian** diatur ke `Manual`, guru perlu menilai jawaban peserta secara manual.
 
 ### Langkah Penilaian
 
-1. **Penilaian** → pilih sesi yang ingin dinilai
-2. Daftar peserta dengan soal uraian yang belum dinilai akan muncul
-3. Klik peserta → tampil semua soal uraian + jawaban/file yang diupload
-4. Masukkan **nilai** untuk tiap soal uraian (0 – bobot soal)
-5. Setelah semua soal dinilai, klik **"Hitung Ulang Nilai"** → sistem otomatis hitung nilai akhir
+1. Di sidebar, klik **Penilaian**
+2. Daftar sesi yang memiliki soal uraian belum dinilai akan muncul — lengkap dengan statistik: total peserta, sudah dinilai, dan menunggu penilaian
+3. Klik sesi yang ingin dinilai
+4. Daftar peserta tampil — klik peserta untuk membuka halaman penilaian individual
+5. Untuk setiap soal uraian: lihat jawaban teks dan/atau file yang diupload peserta, lalu masukkan **nilai** (0 – bobot soal)
+6. Setelah semua soal uraian peserta dinilai, klik **"Hitung Ulang Nilai"** → sistem otomatis menghitung nilai akhir peserta
 
 :::note
-Selama ada soal uraian yang belum dinilai, nilai akhir peserta **tidak akan muncul** di halaman hasil.
+Selama ada soal uraian yang belum dinilai, nilai akhir peserta **tidak akan muncul** di halaman hasil peserta.
 :::
 
 ## Laporan Hasil Ujian
@@ -55,6 +56,24 @@ Tab **"Rekap Kecurangan"** menampilkan rekap tab-switch, pelanggaran fullscreen,
 ### Komparasi Antar Sesi
 
 Di halaman **Dashboard Guru**, tersedia perbandingan rata-rata nilai antar sesi untuk paket yang sama — memudahkan guru melihat tren performa ujian antar kelas atau periode.
+
+## Analisis Ulangan
+
+Setelah sesi selesai, jalankan **Analisis Ulangan** untuk mendapatkan laporan ketuntasan dan rekomendasi program tindak lanjut.
+
+### Membuka Analisis Ulangan
+
+1. Di tabel sesi, klik action **"Analisis Ulangan"** pada sesi yang ingin dianalisis
+2. Halaman analisis menampilkan:
+   - **Ketuntasan Individual**: peserta mana yang tuntas (nilai ≥ KKM) dan mana yang belum
+   - **Ketuntasan Klasikal**: persentase peserta yang tuntas dibandingkan target KKM Klasikal
+   - **Distribusi Nilai**: sebaran nilai seluruh peserta dalam histogram
+   - **Program Remidi**: daftar peserta dengan nilai < KKM yang perlu mengikuti remedial
+   - **Program Pengayaan**: daftar peserta yang masuk rentang pengayaan (antara Batas Pengayaan 1 dan 2)
+
+### Export Analisis
+
+Klik **"Export PDF"** atau **"Export Excel"** untuk mengunduh laporan analisis — berguna untuk dilampirkan ke dokumentasi ujian atau diserahkan ke kepala sekolah.
 
 ## Portofolio Peserta
 

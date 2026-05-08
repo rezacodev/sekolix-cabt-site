@@ -17,16 +17,21 @@ Jika login gagal 5 kali berturut-turut, akun akan terkunci sementara selama 15 m
 
 ## Dashboard Peserta
 
-Setelah login, Anda akan melihat daftar sesi ujian yang tersedia. Setiap sesi menampilkan:
+Setelah login, Anda akan melihat:
+- **Pengumuman** dari guru atau admin (jika ada) di bagian atas halaman
+- **Daftar sesi ujian** yang tersedia untuk Anda
+
+Setiap sesi ujian menampilkan:
 - Nama paket ujian
 - Durasi ujian
 - Status sesi (Aktif / Belum dibuka / Selesai)
+- Informasi attempt terakhir dan sisa percobaan (jika ujian mengizinkan pengulangan)
 
 ## Memasuki Sesi Ujian
 
 1. Klik sesi ujian yang ingin dikerjakan
-2. Halaman konfirmasi akan muncul — periksa detail ujian (nama, durasi, jumlah soal)
-3. Masukkan **token akses** yang diberikan oleh pengawas/guru
+2. Halaman konfirmasi akan muncul — periksa detail ujian (nama, durasi, jumlah soal, jumlah seksi jika ada)
+3. Masukkan **token akses** yang diberikan oleh pengawas/guru (jika ujian menggunakan token — tidak semua ujian memerlukan token)
 4. Klik **Mulai Ujian**
 
 :::caution

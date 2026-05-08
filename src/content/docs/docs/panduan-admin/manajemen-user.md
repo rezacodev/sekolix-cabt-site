@@ -32,6 +32,8 @@ sidebar:
 | **Password** | Password awal — peserta dianjurkan ganti setelah login pertama | ✅ |
 | **Level** | Pilih 1–4 sesuai peran | ✅ |
 | **Nomor Peserta** | Nomor identitas ujian — hanya untuk Level 1 (Peserta) | — |
+| **NIP** | Nomor Induk Pegawai — hanya untuk Level 2 (Guru) dan ke atas | — |
+| **NUPTK** | Nomor Unik Pendidik dan Tenaga Kependidikan — hanya untuk Level 2 (Guru) dan ke atas | — |
 | **Rombel** | Assign ke rombel — hanya untuk Level 1 (Peserta) | — |
 | **Aktif** | Toggle aktif/nonaktif akun | ✅ |
 
@@ -45,7 +47,7 @@ Cara paling efisien untuk menambahkan banyak peserta sekaligus:
 2. Klik **"Download Template"** — gunakan template ini, jangan format custom
 3. Isi data di template:
    - Kolom wajib: **Nama**, **Username**, **Email**, **Password**, **Level**
-   - Kolom opsional: **Nomor Peserta**, **Rombel** (isi dengan kode rombel)
+   - Kolom opsional: **Nomor Peserta**, **Kode Rombel** (isi dengan kode rombel yang terdaftar di sistem)
 4. Upload file Excel → sistem validasi setiap baris
 5. Laporan import ditampilkan: berhasil / gagal per baris beserta pesan error-nya
 

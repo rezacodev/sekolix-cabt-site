@@ -48,7 +48,9 @@ Klik **"Lihat Review"** di halaman hasil untuk membuka halaman review.
 
 Halaman **Portofolio** di dashboard peserta menampilkan riwayat semua ujian yang pernah Anda ikuti:
 - Nama sesi dan tanggal
-- Nilai akhir per ujian
-- Grafik tren nilai dari waktu ke waktu
+- Nilai akhir, jumlah benar/salah/kosong per ujian
+- Status attempt (Selesai / Timeout / Diskualifikasi)
+- Statistik ringkasan: total ujian, rata-rata nilai, nilai tertinggi, nilai terendah
+- Grafik tren nilai dari waktu ke waktu (20 attempt terakhir)
 
 Portofolio bisa diakses kapan saja dari dashboard peserta meskipun sesi sudah lama berakhir.

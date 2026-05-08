@@ -67,10 +67,17 @@ Beberapa ujian dibagi menjadi beberapa **seksi** (bagian) dengan timer tersendir
 
 ### Navigasi Antar Seksi
 
+Terdapat dua mode navigasi seksi yang ditentukan oleh guru saat membuat paket ujian:
+
+| Mode | Keterangan |
+|---|---|
+| **Urut** | Harus menyelesaikan seksi aktif sebelum pindah ke seksi berikutnya. Setelah berpindah, **tidak bisa kembali ke seksi sebelumnya** |
+| **Bebas** | Bisa berpindah antar seksi kapan saja selama waktu ujian masih ada |
+
+Pada kedua mode:
 - Palet soal hanya menampilkan soal di seksi yang sedang aktif
-- Setelah semua soal di seksi selesai (atau timer seksi habis), tombol **"Lanjut ke Seksi Berikutnya"** akan aktif
-- Konfirmasi sebelum pindah — **setelah berpindah seksi, Anda tidak bisa kembali ke seksi sebelumnya**
+- Setiap seksi memiliki timer independen — timer seksi berjalan terus meski Anda berada di seksi lain (mode bebas)
 
 :::caution
-Pastikan semua soal di seksi saat ini sudah dijawab atau ditandai sebelum menekan "Lanjut ke Seksi Berikutnya".
+Pada mode **Urut**: pastikan semua soal di seksi saat ini sudah dijawab atau ditandai sebelum menekan "Lanjut ke Seksi Berikutnya" — setelah berpindah Anda tidak bisa kembali.
 :::

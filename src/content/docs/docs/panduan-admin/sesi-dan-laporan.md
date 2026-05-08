@@ -108,11 +108,16 @@ Fitur analisis butir soal membantu mengevaluasi **kualitas setiap soal** dalam s
 
 ### Analisis Ulangan
 
-Analisis Ulangan Harian menyediakan ringkasan ketuntasan, distribusi nilai, dan rekomendasi program pengayaan untuk setiap sesi.
+Analisis Ulangan menyediakan ringkasan ketuntasan, distribusi nilai, dan rekomendasi program tindak lanjut untuk setiap sesi.
 
-1. Buka detail sesi ujian → klik action **Analisis Ulangan**
+1. Buka daftar sesi → klik action **"Analisis Ulangan"** pada sesi yang diinginkan
 2. Atau buka langsung URL `/cabt/analisis/{sessionId}`
-3. Halaman menampilkan ringkasan ketuntasan individual dan klasikal, distribusi skor, dan rekomendasi pengayaan/remidi
+3. Halaman menampilkan:
+   - Ketuntasan individual dan klasikal (dibandingkan KKM dan KKM Klasikal yang dikonfigurasi di sesi)
+   - Distribusi skor dalam histogram
+   - Daftar peserta untuk program **Remidi** (nilai < KKM)
+   - Daftar peserta untuk program **Pengayaan** (nilai dalam rentang Batas Pengayaan 1 dan 2)
+4. Klik **"Export PDF"** atau **"Export Excel"** untuk mengunduh laporan lengkap
 
 #### Interpretasi P-value (Indeks Kesulitan)
 
