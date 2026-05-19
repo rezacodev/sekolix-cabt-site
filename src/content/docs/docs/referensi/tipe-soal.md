@@ -27,7 +27,7 @@ nilai = bobot_soal × (bobot_persen_opsi_dipilih / 100)
 Contoh: Soal bobot 2, opsi A = 100%, opsi B = 50%, opsi C = 0%.  
 Jika pilih B → nilai = 2 × (50/100) = **1.0**
 
-### PGJ — PG Jawaban Majemuk
+### PGJ — Pilihan Ganda Kompleks
 
 Lebih dari satu opsi benar. Nilai proporsional berdasarkan opsi benar yang dipilih.
 
